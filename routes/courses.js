@@ -4,6 +4,7 @@ const auth = require('../middelware/auth')
 
 const router = Router();
 
+// Роут на страницу (/courses) подгрузки найденных в БД курсов и отрисовки этих курсов из (courses.hbs) 
 router.get('/', async (req, res) => {
   const courses = await Course.find()
   .populate('userId', 'email name')
