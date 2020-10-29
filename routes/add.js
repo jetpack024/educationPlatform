@@ -17,11 +17,13 @@ router.post('/', auth, async (req, res) => {
     price: req.body.price,
     img: req.body.img,
     userId: req.user,
+
     contentType: req.body.contentType,
     shortDescription: req.body.shortDescription,
     fullDescription: req.body.fullDescription,
     pictureLink: req.body.pictureLink,
     contentLink: req.body.contentLink,
+
   });
 
   try {

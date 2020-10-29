@@ -1,8 +1,3 @@
-const toCurrenscy = (price) => new Intl.NumberFormat('ru-Ru', {
-  currency: 'rub',
-  style: 'currency',
-}).format(price);
-
 const toDate = (date) => new Intl.DateTimeFormat('ru-RU', {
   day: '2-digit',
   month: 'long',
@@ -12,9 +7,6 @@ const toDate = (date) => new Intl.DateTimeFormat('ru-RU', {
   second: '2-digit',
 }).format(new Date(date));
 
-document.querySelectorAll('.price').forEach((node) => {
-  node.textContent = toCurrenscy(node.textContent);
-});
 
 document.querySelectorAll('.date').forEach((node) => {
   node.textContent = toDate(node.textContent);
@@ -40,8 +32,10 @@ if ($card) {
               </td>
             </tr>
               `).join('');
+
             $card.querySelector('tbody').innerHTML = html;
             $card.querySelector('.price').textContent = toCurrenscy(card.price);
+
           } else {
             $card.innerHTML = '<p>Корзина пуста</p>';
           }

@@ -6,7 +6,7 @@ const courseSchema = new Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   img: String,
@@ -14,6 +14,7 @@ const courseSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+
   shortDescription: String,
   fullDescription: String,
   pictureLink: String,
@@ -24,10 +25,11 @@ const courseSchema = new Schema({
 courseSchema.method('toClient', function () {
   const course = this.toObject();
 
-  course.id = course._id;
-  delete course._id;
 
+  course.id = course._id
+  delete course._id
   return course;
 });
+
 
 module.exports = model('Course', courseSchema);

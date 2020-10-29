@@ -11,6 +11,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   cart: {
     items: [
       {
@@ -23,11 +27,11 @@ const userSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'Course',
           required: true,
-        }
-      }
-    ]
-  }
-})
+        },
+      },
+    ],
+  },
+});
 
 userSchema.methods.addToCart = function (course) {
   const items = [...this.cart.items];

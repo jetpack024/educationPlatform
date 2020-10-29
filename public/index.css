@@ -39,3 +39,9 @@
 .auth {
 	padding-top: 1rem;
 }
+
+#price{
+	height: 300px;
+	width: 1280px;
+	border: 1px solid #000;
+}
