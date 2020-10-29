@@ -16,9 +16,34 @@
 
 	<div class="input-field col s6">
 		<input id="img" name="img" type="text" class="validate" required value="{{course.img}}">
-		<label for="img">Адрес картинки</label>
-		<span class="helper-text" data-error="Введите адрес картинки">Helper text</span>
+		<label for="img">Адрес картинки для курса</label>
+		<span class="helper-text" data-error="Введите адрес картинки"></span>
 	</div>
+
+  
+  <div class="input-field col s6">
+    <input id="contentType" name="contentType" type="text" class="validate" required>
+    <label for="contentType">Тип содержимого (статья, видео, документ)</label>
+    <span class="helper-text" data-error="Задайте тип содержимого"></span>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="shortDescription" name="shortDescription" type="text" class="validate">
+    <label for="shortDescription">Краткое описание курса</label>
+    <span class="helper-text" data-error="Введите краткое описание курса"></span>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="fullDescription" name="fullDescription" type="text" class="validate" required>
+    <label for="fullDescription">Полное описание курса</label>
+    <span class="helper-text" data-error="Введите подробное описание курса"></span>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="contentLink" name="contentLink" type="text" class="validate">
+    <label for="contentLink">Ссылка на видео</label>
+    <span class="helper-text" data-error="Введите ссылку на видео"></span>
+  </div>
 
 	<input type="hidden" name="id" value="{{course.id}}">
 

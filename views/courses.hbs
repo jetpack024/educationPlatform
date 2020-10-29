@@ -10,10 +10,12 @@
       </div>
       <div class="card-content">
         <span class="card-title">{{title}}</span>
+        <p class="shortDescription">{{shortDescription}}</p>
+        <p class="price">{{price}}</p>
       </div>
       <div class="card-action actions">
         <a href="/courses/{{id}}" target="_blank">Открыть курс</a>
-        {{!-- {{#if @root.isAuth }}
+        {{#if @root.isAuth}}
         <form action="/card/add" method="POST">
           <input type="hidden" name="id" value="{{id}}">
           <button type="submit" class="btn btn-primary">Купить</button>

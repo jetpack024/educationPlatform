@@ -1,13 +1,15 @@
 const { Router } = require('express');
 const Course = require('../models/course');
-const auth = require('../middelware/auth')
+const auth = require('../middelware/auth');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
   const courses = await Course.find()
     .populate('userId', 'email name')
-    .select('price title img');
+
+    .select('price title img shortDescription');
+
 
   res.render('courses', {
     title: 'Курсы',
@@ -43,7 +45,7 @@ router.post('/remove', auth, async (req, res) => {
   } catch (e) {
     console.log(e);
   }
-})
+});
 
 router.get('/:id', async (req, res) => {
   const course = await Course.findById(req.params.id);

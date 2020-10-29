@@ -1,7 +1,13 @@
 <div class="course">
-	<h1>{{course.title}}</h1>
+  <h1>{{course.title}}</h1>
 
-	<img src="{{course.img}}" alt"{{course.title}}">
+  <img src="{{course.img}}" alt"{{course.title}}">
 
-	<p class="price big">{{course.price}}</p>
+  {{#if course.contentLink}}
+  <p class="content-link">Просмотреть курс  <a href="">{{course.contentLink}}</a></p>
+  {{/if}}
+
+  <p class="content">{{course.fullDescription}}</p>
+
+  <p class="price big">{{course.price}}</p>
 </div>
