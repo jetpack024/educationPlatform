@@ -1,19 +1,21 @@
+{{!-- отрисвывывает страницу редактирования курса --}}
 <h1>Редактировать {{course.title}}</h1>
 
-
+{{!-- отрисовывает форму добавления изменений --}}
 <form action="/courses/edit" method="POST" class="course-form">
+  {{!-- input изменения названия курса --}}
 	<div class="input-field col s6">
 		<input id="title" name="title" type="text" class="validate" required value="{{course.title}}">
 		<label for="title">Название курса</label>
 		<span class="helper-text" data-error="Введите название"></span>
 	</div>
-
+  {{!-- input изменения цены курса --}}
 	<div class="input-field col s6">
 		<input id="price" name="price" type="number" class="validate" required min="1" value="{{course.price}}">
 		<label for="price">Цена курса</label>
 		<span class="helper-text" data-error="Введите цену"></span>
 	</div>
-
+  {{!-- input изменения url адреса картинки --}}
 	<div class="input-field col s6">
 		<input id="img" name="img" type="text" class="validate" required value="{{course.img}}">
 		<label for="img">Адрес картинки для курса</label>
@@ -46,10 +48,10 @@
   </div>
 
 	<input type="hidden" name="id" value="{{course.id}}">
-
+  {{!-- кнопка принятия изменний данной формы курса --}}
 	<button type="submit" class="btn btn-primary">Редактировать курс</button>
 </form>
-
+{{!-- форма с кнопкой удаления данного курса --}}
 <form action="/courses/remove" method="POST">
 	<input type="hidden" name="id" value="{{course.id}}">
 	<button class="btn red">Удалить курс</button>

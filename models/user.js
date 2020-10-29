@@ -6,15 +6,27 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   password: {
     type: String,
     required: true,
   },
+
+  phoneNumber: {
+    type: Number,
+    required: true,
+  },
+  address: String,
+  documents: Array,
+
   isAdmin: {
     type: Boolean,
     default: false,
   },
+
   cart: {
     items: [
       {
@@ -27,11 +39,20 @@ const userSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'Course',
           required: true,
-        },
-      },
-    ],
+
+        }
+      }
+    ]
   },
-});
+  children: [{
+    name: {
+      type: String,
+    },
+    DateOfBirth: {
+      type: Date,
+    },
+  }]
+})
 
 userSchema.methods.addToCart = function (course) {
   const items = [...this.cart.items];

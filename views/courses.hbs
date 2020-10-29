@@ -1,7 +1,10 @@
+{{!-- отрисовка страницы курсов --}}
 <h1>Курсы</h1>
-
+{{!-- если есть курсы --}}
 {{#if courses.length}}
+{{!-- для каждого курса "course.hbs" --}}
 {{#each courses}}
+
 <div class="row">
   <div class="col s6 offset-s3">
     <div class="card">
@@ -26,6 +29,7 @@
         <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
         <form action="/card/add" method="POST">
           <input type="hidden" name="id" value="{{id}}">
+
           <button type="submit" class="btn btn-primary">Купить</button>
         </form>
         {{/if}}
