@@ -1,4 +1,5 @@
-<h1>Мои заказы</h1>
+<h1>Моя страница</h1>
+<h5>Прослушать еще раз:</h5>
 
 {{#if orders.length}}
 	{{#each orders}}
@@ -7,7 +8,7 @@
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">
-							Заказ <small>{{_id}}</small>
+							Курс <small>{{_id}}</small>
 						</span>
 						<p class="date">{{date}}</p>
 						<p><em>{{user.userId.name}}</em>({{user.userId.email}})</p>
