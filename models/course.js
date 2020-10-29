@@ -7,7 +7,6 @@ const courseSchema = new Schema({
   },
   price: {
     type: String,
-    required: true,
   },
   img: String,
   userId: {
