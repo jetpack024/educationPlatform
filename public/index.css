@@ -40,8 +40,17 @@
 	padding-top: 1rem;
 }
 
-#price{
-	height: 300px;
-	width: 1280px;
-	border: 1px solid #000;
+.firstSlideInfo{
+  margin-left: 30%;
+  color: black!important;
 }
+.secondSlideInfo{
+  margin-left: 60%;
+  color: white !important;
+}
+.thirdSlideInfo{
+  margin-right: 45%;
+  
+  color:white!important;
+}
+
