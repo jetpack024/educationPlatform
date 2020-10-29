@@ -47,9 +47,10 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
+  console.log(req.body);
   try {
     const {
-      email, password, repeat, name,
+      email, password, repeat, phoneNumber, name,
     } = req.body;
     const candidate = await User.findOne({ email });
 
@@ -57,7 +58,7 @@ router.post('/register', async (req, res) => {
       res.redirect('/auth/login#register');
     } else {
       const user = new User({
-        email, name, password, cart: { items: [] },
+        email, name, password, phoneNumber, cart: { items: [] },
       });
       await user.save();
       res.redirect('/auth/login#login');
