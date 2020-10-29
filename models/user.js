@@ -5,14 +5,20 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   password: {
     type: String,
     required: true,
   },
   phoneNumber: {
-    type: String,
+    type: Number,
+    required: true,
   },
+  address: String,
+  documents: Array,
   cart: {
     items: [
       {
@@ -29,7 +35,7 @@ const userSchema = new Schema({
       }
     ]
   },
-  childrens: [{
+  children: [{
     name: {
       type: String,
     },
