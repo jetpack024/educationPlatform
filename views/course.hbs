@@ -3,7 +3,9 @@
 
   <img src="{{course.img}}" alt"{{course.title}}">
 
-  <p class="content-link">{{course.contentLink}}</p>
+  {{#if course.contentLink}}
+  <p class="content-link">Просмотреть курс  <a href="">{{course.contentLink}}</a></p>
+  {{/if}}
 
   <p class="content">{{course.fullDescription}}</p>
 
