@@ -31,11 +31,11 @@ const store = new MongoStore({
 });
 
 app.engine('hbs', hbs.engine);
-app.set('view engine', 'hbs'); 
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-app.use(express.static(path.join(__dirname, 'public'))); 
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
   secret: 'some secret value',
@@ -43,17 +43,28 @@ app.use(session({
   saveUninitialized: false,
   store,
 }));
-app.use(varMiddelware); 
-app.use(userMiddeleware);  
+app.use(varMiddelware);
+app.use(userMiddeleware);
 
-app.use('/', homeRoutes); 
-app.use('/add', addRoutes); 
+app.use('/', homeRoutes);
+app.use('/add', addRoutes);
 app.use('/courses', coursesRoutes);
-app.use('/card', cardRoutes); 
-app.use('/orders', ordersRoutes); 
-app.use('/auth', authRoutes); 
+app.use('/card', cardRoutes);
+app.use('/orders', ordersRoutes);
+app.use('/auth', authRoutes);
 
-const PORT = process.env.PORT || 8080; 
+app.use((req, res, next) => {
+  // const whitelist = [
+  //   'https://youtube.com',
+  // ];
+  // const clientAdress = req.get('origin');
+  // if (whitelist.includes(clientAdress)) {
+    res.header('Access-Control-Allow-Origin', '*');
+  // }
+  next();
+});
+
+const PORT = process.env.PORT || 8080;
 
 async function start() {
   try {

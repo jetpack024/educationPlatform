@@ -2,13 +2,18 @@
 <div class="course">
   <h1>{{course.title}}</h1>
 
-  <img src="{{course.img}}" alt"{{course.title}}">
+  <img src="{{course.img}}" alt="{{course.title}}">
 
   {{#if course.contentLink}}
-  <p class="content-link">Просмотреть курс  <a href="">{{course.contentLink}}</a></p>
+  <p class="content-link">Просмотреть курс</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.contentLink}}" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
   {{/if}}
 
   <p class="content">{{course.fullDescription}}</p>
 
+  {{#if course.price}}
   <p class="price big">{{course.price}}</p>
+  {{/if}}
 </div>
