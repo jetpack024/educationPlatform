@@ -15,12 +15,16 @@
 			<li><a href="/courses">Курсы</a></li>
 			{{/if}}
 
-		{{#if isAuth}}
+			{{#if isAdmin}}
 			{{#if isAdd}}
 			<li class="active"> <a href="/add">Добавить курс</a></li>
 			{{else}}
 			<li><a href="/add">Добавить курс</a></li>
 			{{/if}}
+			{{/if}}
+
+			{{#if isAuth}}
+
 
 			{{#if isCard}}
 			<li class="active"> <a href="/card">Корзина</a></li>
@@ -35,11 +39,11 @@
 			{{/if}}
 
 			<li><a href="/auth/logout">Выйти</a></li>
-		{{else}}
-			{{#if isLogin}}
-				<li class="active"> <a href="/auth/login#login">Войти</a></li>
 			{{else}}
-				<li><a href="/auth/login#login">Войти</a></li>
+			{{#if isLogin}}
+			<li class="active"> <a href="/auth/login#login">Войти</a></li>
+			{{else}}
+			<li><a href="/auth/login#login">Войти</a></li>
 			{{/if}}
 
 			{{/if}}

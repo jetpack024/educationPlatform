@@ -4,6 +4,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   name: {
     type: String,
@@ -13,12 +14,19 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+
   phoneNumber: {
     type: Number,
     required: true,
   },
   address: String,
   documents: Array,
+
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+
   cart: {
     items: [
       {
@@ -31,6 +39,7 @@ const userSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'Course',
           required: true,
+
         }
       }
     ]

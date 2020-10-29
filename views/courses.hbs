@@ -4,40 +4,40 @@
 {{#if courses.length}}
 {{!-- для каждого курса "course.hbs" --}}
 {{#each courses}}
-{{!-- выводит новую табличку с курсом --}}
-  <div class="row">
-    <div class="col s6 offset-s3">
-      <div class="card">
-        {{!-- выводит картинку этого курса "course.hbs" --}}
-        <div class="card-image">
-          <img src="{{img}}" alt="{{title}}">
-        </div>
-        {{!-- выводит контент этого курса "course.hbs" --}}
-        <div class="card-content">
-          {{!-- выводит название этого курса "course.hbs" --}}
-          <span class="card-title">{{title}}</span>
-          {{!-- выводит цену этого курса "course.hbs" --}}
-          <p class="price">{{price}}</p>
-        </div>
-        {{!-- выводит список с кнопками(ссылками) --}}
-        <div class="card-action actions">
-          {{!-- кнопка "открыть курс" редиректит на страницу курса с его уникальным id --}}
-          <a href="/courses/{{id}}" target="_blank">Открыть курс</a>
-          {{#if @root.isAuth}}
-          {{!-- кнопка "редактировать" редиректит на страницу редактирования курса "course-edit.hbs" --}}
-          <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
-          <form action="/card/add" method="POST">
-          <input type="hidden" name="id" value="{{id}}" >
-          {{!-- кнопка "купить" редиректит на корзину --}}
+
+<div class="row">
+  <div class="col s6 offset-s3">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{img}}" alt="{{title}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title">{{title}}</span>
+        <p class="shortDescription">{{shortDescription}}</p>
+        <p class="price">{{price}}</p>
+      </div>
+      <div class="card-action actions">
+        <a href="/courses/{{id}}" target="_blank">Открыть курс</a>
+        {{#if @root.isAuth}}
+        <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="{{id}}">
           <button type="submit" class="btn btn-primary">Купить</button>
-          </form>
-          {{/if}}
-        </div>
+        </form>
+        {{/if}}
+
+        {{#if @root.isAdmin}}
+        <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
+        <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="{{id}}">
+
+          <button type="submit" class="btn btn-primary">Купить</button>
+        </form>
+        {{/if}}
       </div>
     </div>
   </div>
-	{{/each}}
-  {{!-- если курсов нет, то выводит надпись, что курсов нет --}}
+</div>
+{{/each}}
 {{else}}
 <p>Курсов пока нет</p>
 {{/if}}

@@ -1,64 +1,52 @@
-{{!-- отрисовывает главную страницу до аутентификации пользователя --}}
 <div class="auth">
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
-        {{!-- кнопка с ссылкой на форму входа --}}
 				<li class="tab col s6"><a class="active" href="#login">Войти</a></li>
-        {{!-- кнопка с ссылкой на форму регистрации --}}
 				<li class="tab col s6"><a href="#register">Регистрация</a></li>
 			</ul>
 		</div>
-    {{!-- первая форма - вход пользователя --}}
 		<div id="login" class="col s6 offset-s3">
 			<h1>Войти в магазин</h1>
 			<form action="/auth/login" method="POST">
-          {{!-- input мэйла зарегистрированного пользователя --}}
 				<div class="input-field">
 					<input id="email" name="email" type="email" class="validate" required>
 					<label for="email">Email</label>
 					<span class="helper-text" data-error="Введите email"></span>
 				</div>
-        {{!-- input пароля зарегистрированного пользователя --}}
 				<div class="input-field">
 					<input id="password" name="password" type="password" class="validate" required>
 					<label for="password">Пароль</label>
 					<span class="helper-text" data-error="Введите пароль"></span>
 				</div>
-        {{!-- кнопка входа для зарегистрированного пользователя --}}
 				<button class="btn btn-primary" type="submit">Войти</button>
 			</form>
 		</div>
-    {{!-- вторая форма - регистрация пользователя --}}
 		<div id="register" class="col s6 offset-s3">
-			<h1>Зарегестрироваться</h1>
+			<h1>Зарегистрироваться</h1>
 			<form action="/auth/register" method="POST">
-      {{!-- input мэйла нового пользователя --}}
 				<div class="input-field">
 					<input id="remail" name="email" type="email" class="validate" required>
 					<label for="remail">Email</label>
 					<span class="helper-text" data-error="Введите email"></span>
 				</div>
-        {{!-- input пароля нового пользователя --}}
 				<div class="input-field">
 					<input id="rpassword" name="password" type="password" class="validate" required>
 					<label for="rpassword">Пароль</label>
 					<span class="helper-text" data-error="Введите пароль"></span>
 				</div>
-        {{!-- input повтора пароля нового пользователя --}}
 				<div class="input-field">
 					<input id="confirm" name="confirm" type="password" class="validate" required>
 					<label for="confirm">Пароль еще раз</label>
 					<span class="helper-text" data-error="Введите пароль"></span>
 				</div>
-        {{!-- input имени нового пользователя --}}
 				<div class="input-field">
 					<input id="name" name="name" type="text" class="validate" required>
 					<label for="name">Ваше имя</label>
 					<span class="helper-text" data-error="Введите имя"></span>
 				</div>
-        {{!-- кнопка отправки формы регистрации --}}
-				<button class="btn btn-primary" type="submit">Зарегестрироваться</button>
+				<button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+
 			</form>
 		</div>
 	</div>
