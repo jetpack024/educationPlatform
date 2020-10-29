@@ -14,19 +14,20 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-
   phoneNumber: {
     type: String,
     required: true,
   },
   address: String,
   documents: Array,
-
   isAdmin: {
     type: Boolean,
     default: false,
   },
-
+  consultationRequest: {
+    type: Boolean,
+    default: false,
+  },
   cart: {
     items: [
       {
@@ -39,7 +40,6 @@ const userSchema = new Schema({
           type: Schema.Types.ObjectId,
           ref: 'Course',
           required: true,
-
         }
       }
     ]
