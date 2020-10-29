@@ -10,6 +10,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  phoneNumber: {
+    type: String,
+  },
   cart: {
     items: [
       {
@@ -25,7 +28,15 @@ const userSchema = new Schema({
         }
       }
     ]
-  }
+  },
+  childrens: [{
+    name: {
+      type: String,
+    },
+    DateOfBirth: {
+      type: Date,
+    },
+  }]
 })
 
 userSchema.methods.addToCart = function (course) {
