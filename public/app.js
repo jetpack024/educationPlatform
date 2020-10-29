@@ -1,9 +1,9 @@
-const toCurrenscy = price => {
-  return new Intl.NumberFormat('ru-Ru', {
-    currency: 'rub',
-    style: 'currency'
-  }).format(price)
-}
+// const toCurrenscy = price => {
+//   return new Intl.NumberFormat('ru-Ru', {
+//     currency: 'rub',
+//     style: 'currency'
+//   }).format(price)
+// }
 
 const toDate = date => {
   return new Intl.DateTimeFormat('ru-RU', {
@@ -16,15 +16,15 @@ const toDate = date => {
   }).format(new Date(date))
 }
 
-document.querySelectorAll('.price').forEach(node => {
-  node.textContent = toCurrenscy(node.textContent)
-})
+// document.querySelectorAll('.price').forEach((node) => {
+//   node.textContent = toCurrenscy(node.textContent);
+// });
 
-document.querySelectorAll('.date').forEach(node => {
-  node.textContent = toDate(node.textContent)
-})
+document.querySelectorAll('.date').forEach((node) => {
+  node.textContent = toDate(node.textContent);
+});
 
-const $card = document.querySelector('#card')
+const $card = document.querySelector('#card');
 if ($card) {
   $card.addEventListener('click', (event) => {
     if (event.target.classList.contains('js-remove')) {
@@ -32,8 +32,8 @@ if ($card) {
 
       fetch('/card/remove/' + id, {
         method: 'delete',
-      }).then(res => res.json())
-        .then(card => {
+      }).then((res) => res.json())
+        .then((card) => {
           if (card.courses.length) {
             const html = card.courses.map((el) => `
               <tr>
@@ -43,16 +43,15 @@ if ($card) {
                 <button class="btn btn-small js-remove" data-id="${el.id}">Удалить</button>
               </td>
             </tr>
-              `).join('')
+              `).join('');
             $card.querySelector('tbody').innerHTML = html
             $card.querySelector('.price').textContent = toCurrenscy(card.price)
           } else {
-            $card.innerHTML = '<p>Корзина пуста</p>'
+            $card.innerHTML = '<p>Корзина пуста</p>';
           }
-        })
+        });
     }
-  })
+  });
 }
 
-M.Tabs.init(document.querySelectorAll('.tabs')); 
-
+M.Tabs.init(document.querySelectorAll('.tabs'));
