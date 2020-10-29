@@ -1,9 +1,10 @@
 const { Router } = require('express');
 const Order = require('../models/order');
-const auth = require('../middelware/auth');
+const auth = require('../middelware/auth'); //аутентификация пользователя
 
 const router = Router();
 
+// Роут для рендера заказов аутентифицированного пользователя ('/orders')
 router.get('/', auth, async (req, res) => {
   try {
     const orders = await Order.find({ 'user.userId': req.user._id })
@@ -22,6 +23,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// Роут для отправки заказа аутентифицированного пользователя в БД и редирект на (/orders)
 router.post('/', auth, async (req, res) => {
   try {
     const user = await req.user
