@@ -1,6 +1,5 @@
 // const { template } = require("handlebars");
 
-
 const toDate = (date) => new Intl.DateTimeFormat('ru-RU', {
   day: '2-digit',
   month: 'long',
@@ -9,7 +8,6 @@ const toDate = (date) => new Intl.DateTimeFormat('ru-RU', {
   minute: '2-digit',
   second: '2-digit',
 }).format(new Date(date));
-
 
 document.querySelectorAll('.date').forEach((node) => {
   node.textContent = toDate(node.textContent);
@@ -38,7 +36,6 @@ if ($card) {
 
             $card.querySelector('tbody').innerHTML = html;
             $card.querySelector('.price').textContent = toCurrenscy(card.price);
-
           } else {
             $card.innerHTML = '<p>Корзина пуста</p>';
           }
@@ -47,42 +44,17 @@ if ($card) {
   });
 }
 
-// const div = document.getElementById('addingForm')
-// div.addEventListener('click', async(e) => {
-//   e.preventDefault();
-//   // const response = await fetch('')
-//   // const responseJSON = await response.json();
-//   const template = await fetch('hbs/user-edit.hbs');
-//   const hbsFromPublicText = await template.text();
-//   const myRender = await Handlebars.compile(hbsFromPublicText);
-//   div.innerHTML = myRender();
-//   $('input#addingForm, textarea#textarea2').characterCounter();
-
-
-
-
-
-
-
-// const hbsFromPublicText = await response.text();
-// const html = Handlebars.compile(hbsFromPublicText);
-// document.getElementById('addingForm').innerHTML = hbsFromPublicText;
-
-// })
-
-
-
 M.Tabs.init(document.querySelectorAll('.tabs'));
 
-//ЭТО СЛАЙДЕР:*
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.slider');
-  var instances = M.Slider.init(elems);
+// ЭТО СЛАЙДЕР:*
+document.addEventListener('DOMContentLoaded', () => {
+  const elems = document.querySelectorAll('.slider');
+  const instances = M.Slider.init(elems);
 });
 
-const but = document.getElementById('SHOW')
-const info = document.getElementById('IGOR')
+const but = document.getElementById('SHOW');
+const info = document.getElementById('IGOR');
 
 but.addEventListener('click', () => {
- info.classList.toggle('none')})
-
+  info.classList.toggle('none');
+});

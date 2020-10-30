@@ -47,7 +47,6 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  console.log(req.body);
   try {
     const {
       email, password, repeat, phoneNumber, name,
@@ -60,12 +59,22 @@ router.post('/register', async (req, res) => {
       const user = new User({
         email, name, password, phoneNumber, cart: { items: [] },
       });
-      await user.save();
-      res.redirect('/auth/login#login');
+      res.render('auth/confirm', { user });
     }
   } catch (e) {
     console.log(e);
   }
+});
+
+router.post('/confirm', async (req, res) => {
+  const {
+    name, email, password, phoneNumber,
+  } = req.body;
+  const user = new User({
+    email, name, password, phoneNumber,
+  });
+  await user.save();
+  res.redirect('/auth/login#login');
 });
 
 module.exports = router;
