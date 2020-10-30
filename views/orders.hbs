@@ -1,12 +1,22 @@
 
-<h1>Моя страница</h1>
+<h1>Добрый день, {{name}}</h1>
+<p>Имя: {{name}}</p>
+<p>Mail: {{email}}</p>
+<p>Номер телефона: {{phoneNumber}}</p>
+<div id="addingForm">
 <h5>Для полного доступа заполните форму:</h5>
-<div>
-  <button class="btn btn-primary">Заполнить форму</button>
+  <form  id="buttonUserForm" >
+
+  <button id="{{id}}"  value="" class="btn btn-primary">Заполнить форму</button>
+  </form>
+</div>
+
+<div id="userForm">
+
 </div>
 
 
-
+{{!-- 
 {{#if orders.length}}
 	{{#each orders}}
 		<div class="row">
@@ -34,4 +44,4 @@
 	{{/each}}
 {{else}}
 	<p>Заказов пока нет</p>
-{{/if}}
+{{/if}} --}}

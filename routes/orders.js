@@ -6,21 +6,31 @@ const router = Router();
 
 // Роут для рендера заказов аутентифицированного пользователя ('/orders')
 router.get('/', auth, async (req, res) => {
-  try {
-    const orders = await Order.find({ 'user.userId': req.user._id })
-      .populate('user.userId');
 
-    res.render('orders', {
-      isOrder: true,
-      title: 'Заказы',
-      orders: orders.map((el) => ({
-        ...el._doc,
-        price: el.courses.reduce((total, c) => total += c.count * c.course.price, 0),
-      })),
-    });
-  } catch (e) {
-    console.log(e);
-  }
+console.log(req.user);
+
+
+  
+  // try {
+  //   const orders = await Order.find({ 'user.userId': req.user._id })
+  //     .populate('user.userId');
+
+  //   res.render('orders', {
+  //     isOrder: true,
+  //     title: 'Заказы',
+  //     orders: orders.map((el) => ({
+  //       ...el._doc,
+  //     })),
+  //   });
+  // } catch (e) {
+  //   console.log(e);
+  // }
+  res.render('orders', {
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email,
+    phoneNumber: req.user.phoneNumber,
+  })
 });
 
 // Роут для отправки заказа аутентифицированного пользователя в БД и редирект на (/orders)

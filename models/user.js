@@ -10,6 +10,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  lastName: String,
+  middleName: String,
   password: {
     type: String,
     required: true,
@@ -45,7 +47,13 @@ const userSchema = new Schema({
     ]
   },
   children: [{
-    name: {
+    childrenFirstname: {
+      type: String,
+    },
+    childrenLastName: {
+      type: String,
+    },
+    childrenMiddleName: {
       type: String,
     },
     DateOfBirth: {
