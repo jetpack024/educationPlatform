@@ -47,16 +47,16 @@ if ($card) {
   });
 }
 
-const div = document.getElementById('addingForm')
-div.addEventListener('click', async(e) => {
-  e.preventDefault();
-  // const response = await fetch('')
-  // const responseJSON = await response.json();
-  const template = await fetch('hbs/user-edit.hbs');
-  const hbsFromPublicText = await template.text();
-  const myRender = await Handlebars.compile(hbsFromPublicText);
-  div.innerHTML = myRender();
-  $('input#addingForm, textarea#textarea2').characterCounter();
+// const div = document.getElementById('addingForm')
+// div.addEventListener('click', async(e) => {
+//   e.preventDefault();
+//   // const response = await fetch('')
+//   // const responseJSON = await response.json();
+//   const template = await fetch('hbs/user-edit.hbs');
+//   const hbsFromPublicText = await template.text();
+//   const myRender = await Handlebars.compile(hbsFromPublicText);
+//   div.innerHTML = myRender();
+//   $('input#addingForm, textarea#textarea2').characterCounter();
  
 
 
@@ -68,7 +68,7 @@ div.addEventListener('click', async(e) => {
   // const html = Handlebars.compile(hbsFromPublicText);
   // document.getElementById('addingForm').innerHTML = hbsFromPublicText;
 
-})
+// })
 
 
 
