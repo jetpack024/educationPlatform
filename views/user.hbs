@@ -1,10 +1,21 @@
-<h1>Добрый день, {{name}}</h1>
-<p>Имя: {{name}}</p>
-<p>Mail: {{email}}</p>
-<p>Номер телефона: {{phoneNumber}}</p>
+<h1>Добрый день, {{user.name}}</h1>
+<p>Имя: {{user.name}}</p>
+<p>Mail: {{user.email}}</p>
+<p>Номер телефона: {{user.phoneNumber}}</p>
+{{#if user.isSuperUser}}
+<p>Фамилия: {{user.lastName}}</p>
+<p>Отчество: {{user.middleName}}</p>
+<p>Регион проживания: {{user.address}}</p>
+<h5>Информация о ребенке</h5>
+<p>Имя: {{user.children.childFirstName}}</p>
+<p>Фамилия: {{user.children.childMiddleName}}</p>
+<p>Отчество: {{user.children.childLastName}}</p>
+<p>Дата рождения: {{user.children.DateOfBirth}}</p>
+{{else}}
 <div id="addingForm">
   <h5>Для полного доступа заполните форму:</h5>
   <form id="buttonUserForm" action="/user/edit">
     <button type="submit" class="btn btn-primary">Заполнить форму</button>
   </form>
 </div>
+{{/if}}

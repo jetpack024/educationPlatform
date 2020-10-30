@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  isSuperUser: {
+    type: Boolean,
+    default: false,
+  },
   consultationRequest: {
     type: Boolean,
     default: false,
@@ -46,8 +50,8 @@ const userSchema = new Schema({
       },
     ],
   },
-  children: [{
-    childFirstname: {
+  children: {
+    childFirstName: {
       type: String,
     },
     childLastName: {
@@ -59,7 +63,7 @@ const userSchema = new Schema({
     DateOfBirth: {
       type: Date,
     },
-  }],
+  },
 });
 
 userSchema.methods.addToCart = function (course) {

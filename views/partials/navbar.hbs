@@ -25,7 +25,9 @@
       {{/if}}
 
       {{#if isAuth}}
+      {{#if isSuperUser}}
       <li><a href="/consultation">Записаться на консультацию</a></li>
+      {{/if}}
       <li><a href="/user">Личный кабинет</a></li>
       <li><a href="/auth/logout">Выйти</a></li>
       {{else}}
