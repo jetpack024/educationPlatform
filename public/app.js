@@ -55,6 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const but = document.getElementById('SHOW');
 const info = document.getElementById('IGOR');
 
-but.addEventListener('click', () => {
+but?.addEventListener('click', () => {
   info.classList.toggle('none');
 });

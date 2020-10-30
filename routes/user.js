@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const User = require('../models/user');
+const Child = require('../models/child');
 const auth = require('../middelware/auth'); // аутентификация пользователя
 
 const router = Router();
@@ -45,6 +46,23 @@ router
     // } catch (e) {
     //   console.log(e);
     // }
+  })
+  .post('/addChild', async (req, res) => {
+    const {
+      childFirstName, childLastName, childMiddleName, DateOfBirth,
+    } = req.body;
+    const child = new Child({
+      childFirstName, childLastName, childMiddleName, DateOfBirth,
+    });
+    await child.save();
+    const parent = req.session.user;
+    const user = await User.findOne({ _id: parent._id });
+    user.children.push(child);
+    await user.save();
+    res.render('user', { user });
+  })
+  .get('/addChild', async (req, res) => {
+    res.render('child-edit');
   });
 
 module.exports = router;

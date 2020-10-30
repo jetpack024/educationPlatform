@@ -1,0 +1,24 @@
+<h5>Информация о вашем ребенке</h5>
+<form action="/user/addChild" method="POST">
+  <div class="input-field col s6">
+    <input id="childFirstName" name="childFirstName" type="text" class="validate" required>
+    <label for="contentType">Имя ребенка</label>
+    <span class="helper-text" data-error="Введите имя ребенка"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="childLastName" name="childLastName" type="text" class="validate">
+    <label for="contentType">Фамилия ребенка</label>
+    <span class="helper-text" data-error="Введите фамилию ребенка"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="childMiddleName" name="childMiddleName" type="text" class="validate" required>
+    <label for="contentType">Отчество ребенка</label>
+    <span class="helper-text" data-error="Введите отчество ребенка"></span>
+  </div>
+  <div class="input-field col s6">
+    <input id="DateOfBirth" name="DateOfBirth" type="date" class="validate">
+    <label for="contentType">Дата рождения ребенка</label>
+    <span class="helper-text" data-error="Введите дату рождения ребенка"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Добавить информацию</button>
+</form>
