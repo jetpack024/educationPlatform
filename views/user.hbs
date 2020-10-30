@@ -6,11 +6,15 @@
 <p>Фамилия: {{user.lastName}}</p>
 <p>Отчество: {{user.middleName}}</p>
 <p>Регион проживания: {{user.address}}</p>
-<h5>Информация о ребенке</h5>
-<p>Имя: {{user.children.childFirstName}}</p>
-<p>Фамилия: {{user.children.childMiddleName}}</p>
-<p>Отчество: {{user.children.childLastName}}</p>
-<p>Дата рождения: {{user.children.DateOfBirth}}</p>
+<h5>Информация о детях</h5>
+{{#each user.children}}
+<p>Имя: {{childFirstName}}</p>
+<p>Фамилия: {{childMiddleName}}</p>
+<p>Отчество: {{childLastName}}</p>
+<p>Дата рождения: {{DateOfBirth}}</p>
+<hr>
+{{/each}}
+<a href="/user/addChild" class="btn btn-primary">Добавить еще одного ребенка</a>
 {{else}}
 <div id="addingForm">
   <h5>Для полного доступа заполните форму:</h5>

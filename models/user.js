@@ -50,20 +50,7 @@ const userSchema = new Schema({
       },
     ],
   },
-  children: {
-    childFirstName: {
-      type: String,
-    },
-    childLastName: {
-      type: String,
-    },
-    childMiddleName: {
-      type: String,
-    },
-    DateOfBirth: {
-      type: Date,
-    },
-  },
+  children: Array,
 });
 
 userSchema.methods.addToCart = function (course) {
