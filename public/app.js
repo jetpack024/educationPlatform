@@ -57,16 +57,16 @@ if ($card) {
 //   const myRender = await Handlebars.compile(hbsFromPublicText);
 //   div.innerHTML = myRender();
 //   $('input#addingForm, textarea#textarea2').characterCounter();
- 
 
 
 
 
 
 
-  // const hbsFromPublicText = await response.text();
-  // const html = Handlebars.compile(hbsFromPublicText);
-  // document.getElementById('addingForm').innerHTML = hbsFromPublicText;
+
+// const hbsFromPublicText = await response.text();
+// const html = Handlebars.compile(hbsFromPublicText);
+// document.getElementById('addingForm').innerHTML = hbsFromPublicText;
 
 // })
 
@@ -75,7 +75,17 @@ if ($card) {
 M.Tabs.init(document.querySelectorAll('.tabs'));
 
 //ЭТО СЛАЙДЕР:*
-document.addEventListener('DOMContentLoaded', function() {
-var elems = document.querySelectorAll('.slider');
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.slider');
   var instances = M.Slider.init(elems);
 });
+
+const but = document.getElementById('SHOW')
+const info = document.getElementById('IGOR')
+
+but.addEventListener('click', () => {
+  if (info.style.display === "none") {
+    info.style.display = "block";
+  } else {
+    info.style.display = "none"
+}})
