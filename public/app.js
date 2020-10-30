@@ -70,4 +70,12 @@ div.addEventListener('click', async(e) => {
 
 })
 
+
+
 M.Tabs.init(document.querySelectorAll('.tabs'));
+
+//ЭТО СЛАЙДЕР:*
+document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('.slider');
+  var instances = M.Slider.init(elems);
+});
