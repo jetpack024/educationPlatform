@@ -49,8 +49,32 @@
   color: white !important;
 }
 .thirdSlideInfo{
-  margin-right: 45%;
-  
+  /* margin-right: 45%; */
+  background-color: rgba(0,0,0, 0.3);
+  padding:0.8em 1.5em ;
   color:white!important;
+
+  transform: translateX((-45%));
+  width: max-content;
 }
+
+.abouter{
+  background-color: rgb(240, 211, 45);
+  font-size: 140%;
+}
+#SHOW{
+  cursor: pointer;
+  background-color:rgb(93, 188, 210);
+  width: max-content;
+  border-radius: 30px;
+  padding:0.8em 1.5em 
+}
+#SHOW:hover{
+  background-color:rgb(93, 188, 210, 0.6)
+}
+
+#IGOR{
+  display: none;
+}
+
 
