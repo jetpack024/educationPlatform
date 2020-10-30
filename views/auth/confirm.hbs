@@ -1,0 +1,14 @@
+<div class="auth">
+  <p>Зарегистрировавшись, Вы соглашаетесь на обработку персональных данных.</p>
+  <p>Пожалуйста, подтвердите Ваше согласие:</p>
+
+  <form action="/auth/confirm" method="POST">
+    
+					<input type="hidden" name="email" value="{{user.email}}">
+					<input type="hidden" name="password" value="{{user.password}}">
+					<input type="hidden" name="name" value="{{user.name}}">
+					<input type="hidden" name="phoneNumber" value="{{user.phoneNumber}}">
+
+    <button type="submit">Соглашаюсь с обработкой персональных данных</button>
+  </form>
+</div>
