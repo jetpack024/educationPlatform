@@ -7,7 +7,7 @@ const MongoStore = require('connect-mongodb-session')(session);
 const exphbs = require('express-handlebars');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const cardRoutes = require('./routes/card');
-const ordersRoutes = require('./routes/orders');
+const userRoutes = require('./routes/user');
 const homeRoutes = require('./routes/home');
 const addRoutes = require('./routes/add');
 const coursesRoutes = require('./routes/courses');
@@ -52,7 +52,7 @@ app.use('/add', addRoutes);
 app.use('/courses', coursesRoutes);
 app.use('/consultation', consultationRoutes);
 app.use('/card', cardRoutes);
-app.use('/orders', ordersRoutes);
+app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
