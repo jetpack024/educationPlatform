@@ -67,14 +67,17 @@
   background-color:rgb(93, 188, 210);
   width: max-content;
   border-radius: 30px;
-  padding:0.8em 1.5em 
+  padding:0.8em 1.5em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
+
 #SHOW:hover{
   background-color:rgb(93, 188, 210, 0.6)
 }
 
-#IGOR{
+.none{
   display: none;
 }
-
-
