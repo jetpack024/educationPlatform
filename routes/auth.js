@@ -28,7 +28,6 @@ router.post('/login', async (req, res) => {
         req.session.user = candidate;
         req.session.isAuthenticated = true;
         req.session.isAdmin = candidate.isAdmin;
-        console.log(req.session.isAdmin);
         req.session.save((err) => {
           if (err) {
             throw err;

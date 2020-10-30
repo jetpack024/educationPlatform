@@ -34,7 +34,6 @@ router.post('/', auth, async (req, res) => {
 });
 
 router.post('/addUserForm', (req, res) => {
-  console.log(req.body._id); 
   res.redirect('/orders')
 })
 

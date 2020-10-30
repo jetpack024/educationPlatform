@@ -64,7 +64,6 @@ router.post('/remove', auth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const course = await Course.findById(req.params.id);
-  console.log(course);
   res.render('course', {
     layout: 'main',
     title: `Курс ${course.title}`,
