@@ -84,8 +84,5 @@ const but = document.getElementById('SHOW')
 const info = document.getElementById('IGOR')
 
 but.addEventListener('click', () => {
-  if (info.style.display === "none") {
-    info.style.display = "block";
-  } else {
-    info.style.display = "none"
-}})
+ info.classList.toggle('none')})
+
