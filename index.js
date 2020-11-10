@@ -43,10 +43,14 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({
+    db: 'shop',
     collection: 'sessions',
-    url: process.env.DB,
+    host: 'localhost',
+    port: process.env.PORT,
+    auto_reconnect:true
   }),
 }));
+
 app.use(varMiddelware);
 app.use(userMiddeleware);
 
