@@ -39,12 +39,12 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: mongoose.createConnection("mongodb+srv://Tapac:123123123@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority", {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    })
+  // store: new MongoStore({
+  //   mongooseConnection: mongoose.createConnection("mongodb+srv://Tapac:123123123@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority", {
+  //     useNewUrlParser: true,
+  //     useFindAndModify: false,
+  //     useCreateIndex: true,
+  //   })
   })
 }));
 
