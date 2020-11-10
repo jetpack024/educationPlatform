@@ -21,10 +21,10 @@ const { dirname } = require('path');
 
 const app = express();
 
-mongoose.connect(process.env.DB, {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-});
+// mongoose.connect(process.env.DB, {
+//   useNewUrlParser: true,
+//   useFindAndModify: false,
+// });
 // const store = new MongoStore({
 //   collection: 'sessions',
 //   url: process.env.DB,
@@ -41,12 +41,12 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: mongoose.createConnection(process.env.DB, {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-    })
-  })
+  // store: new MongoStore({
+  //   mongooseConnection: mongoose.createConnection(process.env.DB, {
+  //     useNewUrlParser: true,
+  //     useFindAndModify: false,
+  //   })
+  // })
 }));
 
 app.use(varMiddelware);
