@@ -42,13 +42,7 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({
-    db: 'shop',
-    collection: 'sessions',
-    host: 'localhost',
-    port: process.env.PORT,
-    auto_reconnect:true
-  }),
+  store: new MongoStore({ mongooseConnection: mongoose.createConnection(process.env.DB)})
 }));
 
 app.use(varMiddelware);
