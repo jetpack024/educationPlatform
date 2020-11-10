@@ -21,7 +21,7 @@ const { dirname } = require('path');
 
 const app = express();
 
-mongoose.connect(process.env.DB, {
+mongoose.connect('mongodb+srv://Tapac:123123123@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true,
@@ -40,7 +40,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({
-    mongooseConnection: mongoose.createConnection(process.env.DB, {
+    mongooseConnection: mongoose.createConnection("mongodb+srv://Tapac:123123123@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true,
