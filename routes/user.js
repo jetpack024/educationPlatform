@@ -8,6 +8,7 @@ const router = Router();
 router
   .get('/', auth, async (req, res) => {
     const { user } = req;
+    console.log("THIS IS REQ", req);
     res.render('user', { user });
   })
   .get('/edit', auth, async (req, res) => {
