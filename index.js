@@ -21,7 +21,7 @@ const { dirname } = require('path');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Marina:team7@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://Tapac:123123123@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
@@ -38,12 +38,12 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: mongoose.createConnection('mongodb+srv://Marina:team7@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-    })
-  })
+  // store: new MongoStore({
+  //   mongooseConnection: mongoose.createConnection('mongodb+srv://Marina:team7@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
+  //     useNewUrlParser: true,
+  //     useFindAndModify: false,
+  //   })
+  // })
 }));
 
 app.use(varMiddelware);
