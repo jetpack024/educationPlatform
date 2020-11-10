@@ -17,8 +17,8 @@ const varMiddelware = require('./middelware/variables');
 const userMiddeleware = require('./middelware/user');
 require('dotenv').config()
 
-const MONGODB_URL = process.env.DB; 
-const app = express(); 
+
+const app = express();
 
 const hbs = exphbs.create({
   defaultLayout: 'main',
@@ -28,7 +28,7 @@ const hbs = exphbs.create({
 
 const store = new MongoStore({
   collection: 'sessions',
-  url: MONGODB_URL,
+  url: process.env.DB,
 });
 
 app.engine('hbs', hbs.engine);
@@ -61,7 +61,7 @@ app.use((req, res, next) => {
   // ];
   // const clientAdress = req.get('origin');
   // if (whitelist.includes(clientAdress)) {
-    res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', '*');
   // }
   next();
 });
@@ -70,13 +70,13 @@ const PORT = process.env.PORT || 8080;
 
 async function start() {
   try {
-    await mongoose.connect(MONGODB_URL, {
+    await mongoose.connect(process.env.DB, {
       useNewUrlParser: true,
       useFindAndModify: false,
     });
 
-    app.listen(PORT, () => {
-      console.log(`Server is runing on port ${PORT}`);
+    app.listen(process.env.PORT || 8080, () => {
+      console.log(`Server is runing on port ${process.env.PORT || 8080}`);
     });
   } catch (e) {
     console.log(e);
