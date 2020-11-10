@@ -21,14 +21,11 @@ const { dirname } = require('path');
 
 const app = express();
 
-// mongoose.connect(process.env.DB, {
-//   useNewUrlParser: true,
-//   useFindAndModify: false,
-// });
-// const store = new MongoStore({
-//   collection: 'sessions',
-//   url: process.env.DB,
-// });
+mongoose.connect('mongodb+srv://Marina:team7@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
+
 
 
 app.set('view engine', 'hbs');
@@ -41,12 +38,12 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  // store: new MongoStore({
-  //   mongooseConnection: mongoose.createConnection(process.env.DB, {
-  //     useNewUrlParser: true,
-  //     useFindAndModify: false,
-  //   })
-  // })
+  store: new MongoStore({
+    mongooseConnection: mongoose.createConnection('mongodb+srv://Marina:team7@cluster0.bwbsi.mongodb.net/shop?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+    })
+  })
 }));
 
 app.use(varMiddelware);
