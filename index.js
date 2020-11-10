@@ -15,9 +15,9 @@ const consultationRoutes = require('./routes/consultation');
 const authRoutes = require('./routes/auth');
 const varMiddelware = require('./middelware/variables');
 const userMiddeleware = require('./middelware/user');
+require('dotenv').config()
 
-
-const MONGODB_URL = 'mongodb://localhost:27017/shop'; 
+const MONGODB_URL = process.env.DB; 
 const app = express(); 
 
 const hbs = exphbs.create({
