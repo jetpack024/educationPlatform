@@ -1,11 +1,12 @@
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
-const Handlebars = require('handlebars');
+// const Handlebars = require('handlebars');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
-const exphbs = require('express-handlebars');
-const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
+// const exphbs = require('express-handlebars');
+// const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const cardRoutes = require('./routes/card');
 const userRoutes = require('./routes/user');
 const homeRoutes = require('./routes/home');
@@ -15,26 +16,24 @@ const consultationRoutes = require('./routes/consultation');
 const authRoutes = require('./routes/auth');
 const varMiddelware = require('./middelware/variables');
 const userMiddeleware = require('./middelware/user');
-require('dotenv').config()
-
+const hbs = require('hbs');
+const { dirname } = require('path');
 
 const app = express();
 
-const hbs = exphbs.create({
-  defaultLayout: 'main',
-  extname: 'hbs',
-  handlebars: allowInsecurePrototypeAccess(Handlebars),
+mongoose.connect(process.env.DB, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
 });
-
 // const store = new MongoStore({
 //   collection: 'sessions',
 //   url: process.env.DB,
 // });
 
-app.engine('hbs', hbs.engine);
+
 app.set('view engine', 'hbs');
 app.set('views', 'views');
-
+hbs.registerPartials(`${dirname}/views/partials`)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
@@ -42,7 +41,12 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.createConnection(process.env.DB)})
+  store: new MongoStore({
+    mongooseConnection: mongoose.createConnection(process.env.DB, {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+    })
+  })
 }));
 
 app.use(varMiddelware);
@@ -67,21 +71,4 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-async function start() {
-  try {
-    await mongoose.connect(process.env.DB, {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-    });
-
-    app.listen(process.env.PORT || 8080, () => {
-      console.log(`Server is runing on port ${process.env.PORT || 8080}`);
-    });
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-start();
+app.listen(process.env.PORT || 8080)
