@@ -45,7 +45,7 @@ app.use(session({
   //     useFindAndModify: false,
   //     useCreateIndex: true,
   //   })
-  })
+  // })
 }));
 
 app.use(varMiddelware);
