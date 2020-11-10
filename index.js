@@ -26,10 +26,10 @@ const hbs = exphbs.create({
   handlebars: allowInsecurePrototypeAccess(Handlebars),
 });
 
-const store = new MongoStore({
-  collection: 'sessions',
-  url: process.env.DB,
-});
+// const store = new MongoStore({
+//   collection: 'sessions',
+//   url: process.env.DB,
+// });
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
@@ -42,7 +42,10 @@ app.use(session({
   secret: 'some secret value',
   resave: false,
   saveUninitialized: false,
-  store,
+  store: new MongoStore({
+    collection: 'sessions',
+    url: process.env.DB,
+  }),
 }));
 app.use(varMiddelware);
 app.use(userMiddeleware);
@@ -66,7 +69,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const PORT = process.env.PORT || 8080;
+
 
 async function start() {
   try {
